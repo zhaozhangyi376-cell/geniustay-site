@@ -1,0 +1,43 @@
+name: Deploy personal site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.ALIYUN_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H 120.79.96.89 >> ~/.ssh/known_hosts
+
+      - name: Upload website files
+        run: |
+          rsync -az --delete \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude ".deploy" \
+            -e "ssh -i ~/.ssh/deploy_key -p 22" \
+            ./ admin@120.79.96.89:/tmp/personal-site-release/
+
+      - name: Publish website
+        run: |
+          ssh -i ~/.ssh/deploy_key -p 22 admin@120.79.96.89 "
+            set -e
+            sudo mkdir -p /var/www/personal-site
+            sudo rsync -a --delete /tmp/personal-site-release/ /var/www/personal-site/
+            sudo chown -R www-data:www-data /var/www/personal-site
+            sudo find /var/www/personal-site -type d -exec chmod 755 {} +
+            sudo find /var/www/personal-site -type f -exec chmod 644 {} +
+            sudo nginx -t
+            sudo systemctl reload nginx
+          "
