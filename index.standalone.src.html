@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="editorial">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>赵彰益 — 个人主页</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<template id="__bundler_thumbnail" data-bg-color="#f6f4ef">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#f6f4ef"/>
+    <text x="120" y="420" font-family="Georgia, serif" font-size="280" font-weight="500" fill="#151311" letter-spacing="-6">赵彰益</text>
+    <text x="128" y="480" font-family="Georgia, serif" font-size="34" font-style="italic" fill="#8a857c" letter-spacing="2">Zhao Zhangyi — Personal site</text>
+    <line x1="120" y1="560" x2="1080" y2="560" stroke="#151311" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="120" y="610" font-family="monospace" font-size="22" fill="#8a857c" letter-spacing="4">EDITION · No.001 / 2026</text>
+    <circle cx="1060" cy="180" r="14" fill="#c9814b"/>
+  </svg>
+</template>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand"><span class="dot"></span> 赵彰益 · Zhao Zhangyi</div>
+  <div class="nav-links">
+    <a href="#about" data-sec="about">关于</a>
+    <a href="#research" data-sec="research">科研</a>
+    <a href="#ventures" data-sec="ventures">创业</a>
+    <a href="#edge" data-sec="edge">我的优势</a>
+    <a href="#contact" data-sec="contact">联系</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" data-screen-label="Hero">
+  <div class="hero-marks">
+    <div class="mark tl">PERSONAL · SITE / 2026</div>
+    <div class="mark tr">EDITION No.001 ——</div>
+    <div class="mark bl">南方科技大学 · 鹏城实验室</div>
+    <div class="mark br">Shenzhen / Tianjin · CN</div>
+  </div>
+
+  <div class="hero-text">
+    <div class="hero-eyebrow">博士候选人 · 创始人 · 投资者</div>
+    <h1>
+      赵彰益<span class="en">— On Research, Ventures, and the space in between.</span>
+    </h1>
+
+    <div class="hero-roles">
+      <span class="role-chip">AI × RF Researcher</span>
+      <span class="role-chip">Founder / CEO</span>
+      <span class="role-chip">ICAO Instructor</span>
+      <span class="role-chip">Angel-stage Investor</span>
+    </div>
+
+    <p class="hero-tagline">
+      我做两件事：<strong>用 AI 重塑射频器件的设计范式</strong>，以及<strong>搭建帮助年轻人认识世界的公司</strong>。
+      在技术第一性原理与商业可行性之间，寻找可以跑通的一条路。
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Currently</div>
+        <div class="meta-value">PhD, SUSTech × 鹏城实验室</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Advisor</div>
+        <div class="meta-value">于明 院士</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Venture</div>
+        <div class="meta-value">界越未来 · Founder &amp; CEO</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Focus</div>
+        <div class="meta-value">AI for RF / EMS Design</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portrait placeholder (no real photo used — see note) -->
+  <div class="hero-portrait reveal">
+    <span class="portrait-tag">plate · i</span>
+    <div class="portrait-frame">
+      <svg class="portrait-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="stripes" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="8" height="8" fill="var(--bg-2)"/>
+            <line x1="0" y1="0" x2="0" y2="8" stroke="var(--rule)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="400" height="500" fill="url(#stripes)"/>
+        <text x="200" y="240" text-anchor="middle" font-family="Source Serif 4, serif" font-style="italic" font-size="120" fill="var(--accent)" opacity="0.8">Z</text>
+        <text x="200" y="290" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--fg-3)" letter-spacing="4">— ZHAO —</text>
+        <text x="200" y="470" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="var(--fg-3)" letter-spacing="3">[ PORTRAIT · PLACEHOLDER ]</text>
+      </svg>
+    </div>
+    <div class="portrait-label">
+      <span>F · 1.8 / 50mm</span>
+      <span>2026</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="line"></div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="block" id="about" data-screen-label="About">
+  <div class="block-inner">
+    <div class="section-head reveal">
+      <div class="section-num">§ 01 / 05</div>
+      <h2 class="section-title">关于我<span class="en">A short self-introduction</span></h2>
+      <div class="section-side">3 min read</div>
+    </div>
+    <div class="about-grid">
+      <div class="about-prose reveal">
+        <p class="lead">
+          我是赵彰益 —— 南方科技大学与鹏城实验室联合培养的电子信息博士，研究方向是
+          <span class="accent">AI for 射频器件</span>。
+        </p>
+        <p>
+          本科毕业于中国民航大学电气工程专业，绩点专业第一，推免直博。科研之外，我在 2024 年创办了
+          <strong>界越未来教育科技有限公司</strong>，服务 200+ 大学生客户，实现正向现金流，客户续费率 80%。
+        </p>
+        <p>
+          2025 年与伙伴共同发起 <strong>AgentAlpha 社区</strong>，聚焦多模态大模型与 Agent 技术落地，
+          孵化开源项目 Idea2Paper，在 GitHub 上斩获 1200+ star，登上 Hugging Face 当日榜一。
+        </p>
+        <p>
+          我相信：<span class="accent">最有价值的工作，发生在学科、身份与行业的交界处。</span>
+          这个网页，是关于那些交界处的一份记录。
+        </p>
+      </div>
+
+      <aside class="about-side reveal">
+        <dl>
+          <dt>姓名</dt><dd>赵彰益</dd>
+          <dt>Year</dt><dd>22</dd>
+          <dt>本科</dt><dd>中国民航大学 · 电气工程</dd>
+          <dt>GPA</dt><dd>90+ / 专业 1 · 305</dd>
+          <dt>博士</dt><dd>SUSTech × 鹏城实验室</dd>
+          <dt>Field</dt><dd>AI for RF Components</dd>
+          <dt>City</dt><dd>Shenzhen · Tianjin</dd>
+          <dt>Email</dt><dd>geniustay@163.com</dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH / TIMELINE -->
+<section class="block" id="research" data-screen-label="Research">
+  <div class="block-inner">
+    <div class="section-head reveal">
+      <div class="section-num">§ 02 / 05</div>
+      <h2 class="section-title">科研经历<span class="en">Research — what I build in the lab.</span></h2>
+      <div class="section-side">Click to expand</div>
+    </div>
+
+    <div class="timeline">
+      <article class="tl-row reveal">
+        <div class="tl-year">2025 — 今</div>
+        <div class="tl-tag">FOUNDING</div>
+        <div class="tl-body">
+          <h3>AI for EMS · 电磁结构自动化设计探索</h3>
+          <div class="role">项目发起人 · SUSTech × 鹏城实验室</div>
+          <div class="desc">
+            <p>传统微波器件设计以经验驱动，周期长。AI 数据驱动带来产业变革空间 — 这正是我的博士课题。</p>
+            <ul>
+              <li>用 AI 实现自然语言输入到可生产 Gerber 文件输出的自动化设计闭环</li>
+              <li>已完成微带线滤波器、阵列天线等案例的完整设计流程</li>
+              <li>已有投资人表示跟进意愿，正在评估 spin-off 路径</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-arrow">›</div>
+      </article>
+
+      <article class="tl-row reveal">
+        <div class="tl-year">2022 — 2024</div>
+        <div class="tl-tag">NATIONAL GRANT</div>
+        <div class="tl-body">
+          <h3>基于无刷电机控制的新型智能旋钮研制</h3>
+          <div class="role">国家级大创 · 项目主持人</div>
+          <div class="desc">
+            <p>从选题立意到论文主笔，一人把一个本科项目推到了国家级别的成果。</p>
+            <ul>
+              <li>以独立一作发表机器学习领域 SCI 论文一篇（JCR Q2），获国家专利</li>
+              <li>挑战杯省级一等奖 · 优秀结题 · 入选全国大学生创新年会（TOP 1%）</li>
+              <li>负责实验设计、电机与算法模型搭建、数据处理、论文写作</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-arrow">›</div>
+      </article>
+
+      <article class="tl-row reveal">
+        <div class="tl-year">2021 — 2025</div>
+        <div class="tl-tag">EDUCATION</div>
+        <div class="tl-body">
+          <h3>中国民航大学 · 电气工程</h3>
+          <div class="role">本科 · GPA 90+ · 专业 1 / 305 · 推免直博</div>
+          <div class="desc">
+            <p>连续三年专业第一，并行开展多条赛道：科研、学生组织、国际讲师、语言、创业。
+            在一所以民航为特色的理工院校，走出了一条完全非典型的路径。</p>
+          </div>
+        </div>
+        <div class="tl-arrow">›</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section class="block" id="ventures" data-screen-label="Ventures">
+  <div class="block-inner">
+    <div class="section-head reveal">
+      <div class="section-num">§ 03 / 05</div>
+      <h2 class="section-title">创业经历<span class="en">Ventures — what I build outside the lab.</span></h2>
+      <div class="section-side">2 active projects</div>
+    </div>
+
+    <div class="projects">
+      <article class="project reveal">
+        <div class="project-tag">FOUNDER · CEO · 2024 →</div>
+        <h3>界越未来教育科技有限公司</h3>
+        <p class="p-desc">
+          从 0 到 1 创建教育咨询公司，聚焦保研规划与大学生能力提升。
+          我独立完成了团队搭建、产品设计、定价与运营增长的整条链路 —
+          这是我第一次把「商业认知」从书本拉到现金流层面。
+        </p>
+        <div class="p-stats">
+          <div class="p-stat"><span class="n">200<small>+</small></span><div class="l">付费客户</div></div>
+          <div class="p-stat"><span class="n">80%</span><div class="l">续费率</div></div>
+          <div class="p-stat"><span class="n">+</span><div class="l">正向现金流</div></div>
+          <div class="p-stat"><span class="n">0→1</span><div class="l">独立完成</div></div>
+        </div>
+      </article>
+
+      <article class="project reveal">
+        <div class="project-tag">CO-FOUNDER · 2025 →</div>
+        <h3>AgentAlpha 社区</h3>
+        <p class="p-desc">
+          汇聚顶尖 AI 人才，聚焦多模态大模型与 Agent 技术落地。
+          我负责资源整合与供需匹配，把社区的技术优势与真实的市场需求接上。
+          孵化项目 <em>Idea2Paper</em>，在 GitHub 与 Hugging Face 同时破圈。
+        </p>
+        <div class="p-stats">
+          <div class="p-stat"><span class="n">1.2k</span><div class="l">GitHub stars</div></div>
+          <div class="p-stat"><span class="n">#1</span><div class="l">HF 当日榜</div></div>
+          <div class="p-stat"><span class="n">1</span><div class="l">孵化项目</div></div>
+          <div class="p-stat"><span class="n">∞</span><div class="l">资源网络</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDGE -->
+<section class="block" id="edge" data-screen-label="Edge">
+  <div class="block-inner">
+    <div class="section-head reveal">
+      <div class="section-num">§ 04 / 05</div>
+      <h2 class="section-title">我的优势<span class="en">The edge — why this combination matters.</span></h2>
+      <div class="section-side">3 intersections</div>
+    </div>
+
+    <div class="edges">
+      <div class="edge reveal">
+        <div class="edge-num">01</div>
+        <div>
+          <h4>交叉技术背景</h4>
+          <p>同时拥有 <strong>AI</strong> 与 <strong>微波</strong> 两个技术领域的资源与人脉，
+             能够对硬科技项目进行精准的技术判断 — 这是一种很难复制的稀缺性。</p>
+        </div>
+      </div>
+      <div class="edge reveal">
+        <div class="edge-num">02</div>
+        <div>
+          <h4>技术 × 资本 双向打通</h4>
+          <p>从技术第一性原理判断项目真伪，用财务与市场逻辑反推技术路线的商业可行性。
+             我 2024 年入场实战配置，最高年化 10%+，与一级市场多位投资人有过深入交流。</p>
+        </div>
+      </div>
+      <div class="edge reveal">
+        <div class="edge-num">03</div>
+        <div>
+          <h4>创始人视角判断力</h4>
+          <p>作为已经跑通 0 → 1 正向现金流的创始人，对项目发展路径有真实的同理心与决策经验 ——
+             这不是 pitch deck 里的概念，而是在客户续费 80% 里长出来的直觉。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards strip -->
+    <div style="margin-top: 80px;">
+      <div class="section-num reveal" style="margin-bottom: 20px;">— 获奖 / AWARDS</div>
+      <div class="awards reveal">
+        <div class="award"><span class="star">★</span>国家奖学金</div>
+        <div class="award"><span class="star">★</span>"挑战杯" 省级一等奖</div>
+        <div class="award"><span class="star">★</span>大学生物理竞赛省一</div>
+        <div class="award"><span class="star">★</span>"互联网+" 省银</div>
+        <div class="award"><span class="star">★</span>数学建模校一</div>
+        <div class="award"><span class="star">★</span>全国大创年会 TOP 1%</div>
+        <div class="award"><span class="star">★</span>SCI · JCR Q2 独立一作</div>
+        <div class="award"><span class="star">★</span>国家专利</div>
+      </div>
+    </div>
+
+    <!-- Cross-cultural -->
+    <div style="margin-top: 80px;" class="reveal">
+      <div class="section-num" style="margin-bottom: 20px;">— 跨界 / OUTSIDE TECH</div>
+      <div class="edges" style="grid-template-columns: 1fr 1fr 1fr;">
+        <div class="edge" style="min-height: 160px;">
+          <div class="edge-num" style="font-size:32px;">语言</div>
+          <p>ICAO 讲师 · 国际大会双语播报员 · 上海模联英文委代表 — 全球化语境下的沟通能力。</p>
+        </div>
+        <div class="edge" style="min-height: 160px;">
+          <div class="edge-num" style="font-size:32px;">投资</div>
+          <p>2024 年入场实战配置，独立完成赛道研究、标的筛选、仓位管理；最高年化 10%+。</p>
+        </div>
+        <div class="edge" style="min-height: 160px;">
+          <div class="edge-num" style="font-size:32px;">认知</div>
+          <p>从技术骨干到独立创始人；自学商业演讲、管理学、公司法 — 完成认知体系的转型。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact" data-screen-label="Contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-num" style="margin-bottom: 24px;">§ 05 / 05 — 保持联系</div>
+      <h2>让我们<br/>聊聊。<span class="en">Research, co-founding, or just a good idea.</span></h2>
+      <p style="color: var(--fg-2); max-width: 520px; font-size: 16px; line-height: 1.7;">
+        如果你在做 AI × 硬科技方向的创业、科研合作、或只是想认识一个相似的人 ——
+        欢迎随时联系。我会认真读每一封邮件。
+      </p>
+
+      <ul class="contact-list">
+        <li data-copy="geniustay@163.com">
+          <span class="c-label">E-mail</span>
+          <span class="c-val">geniustay@163.com</span>
+          <span class="c-arrow">→</span>
+        </li>
+        <li data-copy="18827503731">
+          <span class="c-label">Phone</span>
+          <span class="c-val">+86 188 2750 3731</span>
+          <span class="c-arrow">→</span>
+        </li>
+        <li>
+          <span class="c-label">Labs</span>
+          <span class="c-val">SUSTech · 鹏城实验室 (PCL)</span>
+          <span class="c-arrow">→</span>
+        </li>
+        <li>
+          <span class="c-label">Company</span>
+          <span class="c-val">界越未来教育科技 · Shenzhen</span>
+          <span class="c-arrow">→</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Ask-me card -->
+    <div class="reveal">
+      <div class="ask-card">
+        <h5>问我任何事 / Ask me anything</h5>
+        <div class="ask-q cursor-blink">关于 AI × RF、关于 0→1、关于保研 ——<br/>有什么想问的？</div>
+        <div class="ask-chips">
+          <button class="ask-chip" data-q="你为什么选择 AI for RF 作为博士方向？">AI × RF 选题</button>
+          <button class="ask-chip" data-q="创业对科研有没有帮助？">创业 × 科研</button>
+          <button class="ask-chip" data-q="推免/保研有什么心得？">推免心得</button>
+          <button class="ask-chip" data-q="如何平衡创业、博士、投资三件事？">时间管理</button>
+        </div>
+        <div class="ask-input-row">
+          <input class="ask-input" type="text" placeholder="输入问题，回车发送…" aria-label="ask">
+          <button class="ask-btn">ASK</button>
+        </div>
+        <div class="ask-answer" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block-inner footer-meta">
+    <span>© 2026 赵彰益 · Zhao Zhangyi</span>
+    <span>Crafted in HTML · No trackers · No cookies</span>
+    <span>v 1.0 — Last edit 04.19</span>
+  </div>
+</section>
+
+<!-- TWEAKS PANEL (hidden by default, shown when Tweaks toggle is on) -->
+<aside class="tweaks" id="tweaks" aria-hidden="true">
+  <h6><span>Tweaks</span><span id="tweak-close" style="cursor:pointer">×</span></h6>
+  <div class="tweak-row">
+    <div class="tweak-label">Theme</div>
+    <div class="tweak-btns" data-tweak="theme">
+      <button class="tweak-btn" data-v="editorial">Editorial</button>
+      <button class="tweak-btn" data-v="terminal">Terminal</button>
+      <button class="tweak-btn" data-v="journal">Journal</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <div class="tweak-label">Accent hue</div>
+    <div class="tweak-btns" data-tweak="hue">
+      <button class="tweak-btn" data-v="45">Amber</button>
+      <button class="tweak-btn" data-v="260">Ink</button>
+      <button class="tweak-btn" data-v="135">Moss</button>
+      <button class="tweak-btn" data-v="10">Vermilion</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <div class="tweak-label">Density</div>
+    <div class="tweak-btns" data-tweak="density">
+      <button class="tweak-btn" data-v="relaxed">Relaxed</button>
+      <button class="tweak-btn" data-v="compact">Compact</button>
+    </div>
+  </div>
+</aside>
+
+<!-- Persisted defaults (edit-mode rewriteable) -->
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "theme": "editorial",
+  "hue": 10,
+  "density": "relaxed"
+}/*EDITMODE-END*/;
+</script>
+
+<script src="app.js"></script>
+</body>
+</html>
