@@ -210,4 +210,34 @@ If asked something you don't know, gracefully say 这部分暂时还没公开，
       ask(c.dataset.q);
     });
   });
+
+  /* ---------- Lightbox (zoomable images) ---------- */
+  const lb = document.getElementById("lightbox");
+  if (lb) {
+    const lbImg = lb.querySelector(".lb-img");
+    const lbCap = lb.querySelector(".lb-cap");
+
+    function openLB(src, cap) {
+      lbImg.src = src;
+      lbImg.alt = cap || "";
+      lbCap.textContent = cap || "";
+      lb.classList.add("show");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLB() {
+      lb.classList.remove("show");
+      lb.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lbImg.src = "";
+    }
+
+    document.querySelectorAll("img.zoom").forEach((img) => {
+      img.addEventListener("click", () => openLB(img.currentSrc || img.src, img.alt));
+    });
+    lb.addEventListener("click", closeLB);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lb.classList.contains("show")) closeLB();
+    });
+  }
 })();
