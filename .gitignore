@@ -7,3 +7,4 @@ _local-only-*/
 Zhao Zhangyi - Personal Site.html
 *.tar.gz
 *.zip
+__pycache__/

@@ -34,10 +34,120 @@ jobs:
           ssh -i ~/.ssh/deploy_key -p 22 admin@120.79.96.89 "
             set -e
             sudo mkdir -p /var/www/personal-site
-            sudo rsync -a --delete /tmp/personal-site-release/ /var/www/personal-site/
+            sudo rsync -a --delete \
+              --exclude server \
+              /tmp/personal-site-release/ /var/www/personal-site/
             sudo chown -R www-data:www-data /var/www/personal-site
             sudo find /var/www/personal-site -type d -exec chmod 755 {} +
             sudo find /var/www/personal-site -type f -exec chmod 644 {} +
+          "
+
+      - name: Install Ask API service
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          test -n "$DEEPSEEK_API_KEY"
+          ssh -i ~/.ssh/deploy_key -p 22 admin@120.79.96.89 "DEEPSEEK_API_KEY='$DEEPSEEK_API_KEY' bash -s" <<'REMOTE'
+            set -e
+            sudo mkdir -p /opt/personal-site-ask
+            sudo rsync -a --delete /tmp/personal-site-release/server/ /opt/personal-site-ask/
+            sudo chown -R root:root /opt/personal-site-ask
+            sudo chmod 755 /opt/personal-site-ask
+            sudo chmod 644 /opt/personal-site-ask/ask_system_prompt.md
+            sudo chmod 755 /opt/personal-site-ask/ask_proxy.py
+
+            sudo tee /etc/personal-site-ask.env >/dev/null <<ENV
+DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+DEEPSEEK_MODEL=deepseek-v4-flash
+ASK_PROXY_HOST=127.0.0.1
+ASK_PROXY_PORT=8787
+ASK_SYSTEM_PROMPT_PATH=/opt/personal-site-ask/ask_system_prompt.md
+ENV
+            sudo chmod 600 /etc/personal-site-ask.env
+
+            sudo tee /etc/systemd/system/personal-site-ask.service >/dev/null <<'UNIT'
+[Unit]
+Description=Geniustay personal-site ask API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/personal-site-ask.env
+WorkingDirectory=/opt/personal-site-ask
+ExecStart=/usr/bin/python3 /opt/personal-site-ask/ask_proxy.py
+Restart=always
+RestartSec=3
+User=www-data
+Group=www-data
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+            sudo systemctl daemon-reload
+            sudo systemctl enable personal-site-ask.service
+            sudo systemctl restart personal-site-ask.service
+            sleep 1
+            curl -fsS http://127.0.0.1:8787/healthz >/dev/null
+REMOTE
+
+      - name: Configure Nginx Ask API route
+        run: |
+          ssh -i ~/.ssh/deploy_key -p 22 admin@120.79.96.89 <<'REMOTE'
+            set -e
+            sudo tee /etc/nginx/snippets/personal-site-ask-api.conf >/dev/null <<'SNIPPET'
+location = /api/ask {
+  proxy_pass http://127.0.0.1:8787/api/ask;
+  proxy_http_version 1.1;
+  proxy_set_header Host $host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Forwarded-Proto $scheme;
+  proxy_buffering off;
+  proxy_cache off;
+  proxy_read_timeout 120s;
+  proxy_send_timeout 120s;
+}
+SNIPPET
+
+            NGINX_CONF=$(sudo grep -RslE 'root[[:space:]]+/var/www/personal-site|server_name[[:space:]].*geniustay\.cn' /etc/nginx/sites-enabled /etc/nginx/conf.d | head -n 1)
+            test -n "$NGINX_CONF"
+            if ! sudo grep -q 'personal-site-ask-api.conf' "$NGINX_CONF"; then
+              sudo python3 - "$NGINX_CONF" <<'PY'
+from pathlib import Path
+import sys
+
+path = Path(sys.argv[1])
+text = path.read_text()
+marker = "root /var/www/personal-site"
+pos = text.find(marker)
+if pos == -1:
+    pos = text.find("geniustay.cn")
+if pos == -1:
+    raise SystemExit("Could not find personal-site server block")
+
+server_pos = text.rfind("server", 0, pos)
+brace_pos = text.find("{", server_pos)
+depth = 0
+end_pos = -1
+for i in range(brace_pos, len(text)):
+    if text[i] == "{":
+        depth += 1
+    elif text[i] == "}":
+        depth -= 1
+        if depth == 0:
+            end_pos = i
+            break
+if end_pos == -1:
+    raise SystemExit("Could not find server block end")
+
+include = "  include /etc/nginx/snippets/personal-site-ask-api.conf;\n"
+text = text[:end_pos] + include + text[end_pos:]
+path.write_text(text)
+PY
+            fi
             sudo nginx -t
             sudo systemctl reload nginx
-          "
+REMOTE

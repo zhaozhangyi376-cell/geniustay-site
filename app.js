@@ -147,56 +147,92 @@
     });
   });
 
-  /* ---------- Ask-me (Claude-powered) ---------- */
+  /* ---------- Ask-me (DeepSeek-powered) ---------- */
   const askInput = document.querySelector(".ask-input");
   const askBtn = document.querySelector(".ask-btn");
   const askAnswer = document.querySelector(".ask-answer");
   const askChips = document.querySelectorAll(".ask-chip");
 
-  const SYSTEM_BIO = `You are answering on behalf of 赵彰益 (Zhao Zhangyi) on his personal website.
-Respond IN CHINESE (unless asked in English), in first person ("我"), warmly but concisely.
-Keep answers under 120 Chinese characters unless the question requires more.
-Known facts to use:
-- 22 岁，南方科技大学 × 鹏城实验室 电子信息博士候选人，导师于明院士
-- 研究方向：AI for 射频器件 / 电磁结构自动化设计 (AI for EMS)
-- 本科：中国民航大学电气工程，GPA 90+，专业 1/305，推免直博
-- 国家级大创「基于无刷电机控制的新型智能旋钮」主持人，独立一作 SCI (JCR Q2)，国家专利
-- 挑战杯省一、国家奖学金、物理竞赛省一、互联网+省银、全国大创年会 TOP 1%
-- 2024 年创办「界越未来教育科技」，服务 200+ 大学生客户，续费率 80%，正向现金流
-- 2025 与人共同发起「AgentAlpha 社区」，孵化 Idea2Paper（GitHub 1200+ star，Hugging Face 当日榜一）
-- 语言：ICAO 讲师、国际大会双语播报员、上海模联英文委代表
-- 投资：2024 入场，实战配置，最高年化 10%+
-If asked something you don't know, gracefully say 这部分暂时还没公开，可以邮件问我 (geniustay@163.com). Do not invent facts.`;
-
   let busy = false;
+  let activeController = null;
+
+  function setAskLoading(isLoading) {
+    askAnswer.classList.toggle("is-loading", isLoading);
+    askBtn.disabled = isLoading;
+    askBtn.textContent = isLoading ? "..." : "ASK";
+  }
+
+  function parseSSE(buffer, onData) {
+    const events = buffer.split("\n\n");
+    const rest = events.pop() || "";
+    events.forEach((event) => {
+      const data = event
+        .split("\n")
+        .filter((line) => line.startsWith("data:"))
+        .map((line) => line.slice(5).trimStart())
+        .join("\n");
+      if (data) onData(data);
+    });
+    return rest;
+  }
+
   async function ask(question) {
     if (!question || busy) return;
     busy = true;
+    activeController?.abort();
+    activeController = new AbortController();
     askAnswer.classList.add("show");
-    askAnswer.textContent = "思考中…";
-    askBtn.disabled = true;
+    askAnswer.textContent = "";
+    setAskLoading(true);
+
     try {
-      const reply = await window.claude.complete({
-        messages: [
-          { role: "user", content: `${SYSTEM_BIO}\n\n访客问题：${question}` },
-        ],
+      const response = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question }),
+        signal: activeController.signal,
       });
-      // Typewriter effect
-      askAnswer.textContent = "";
-      const text = (reply || "").trim();
-      let i = 0;
-      const step = () => {
-        if (i < text.length) {
-          askAnswer.textContent += text[i++];
-          setTimeout(step, 14);
-        }
-      };
-      step();
+
+      if (!response.ok || !response.body) {
+        throw new Error(`Ask API failed: ${response.status}`);
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let hasText = false;
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        buffer = parseSSE(buffer, (data) => {
+          if (data === "[DONE]") return;
+          try {
+            const payload = JSON.parse(data);
+            if (payload.content) {
+              if (!hasText) {
+                hasText = true;
+                setAskLoading(false);
+              }
+              askAnswer.textContent += payload.content;
+            }
+          } catch (_) {}
+        });
+      }
+
+      if (!hasText) {
+        askAnswer.textContent = "暂时没有收到回答，可以稍后再试。";
+      }
     } catch (err) {
-      askAnswer.textContent = "抱歉，这会儿回答不了。可以邮件联系：geniustay@163.com";
+      if (err.name !== "AbortError") {
+        askAnswer.textContent = "抱歉，这会儿回答不了。可以邮件联系：geniustay@163.com";
+      }
     } finally {
       busy = false;
-      askBtn.disabled = false;
+      activeController = null;
+      setAskLoading(false);
     }
   }
 
