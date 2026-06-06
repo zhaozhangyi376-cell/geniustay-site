@@ -114,40 +114,51 @@ jobs:
 
             NGINX_CONF=$(sudo grep -RslE 'root[[:space:]]+/var/www/personal-site|server_name[[:space:]].*geniustay\.cn' /etc/nginx/sites-enabled /etc/nginx/conf.d | head -n 1)
             test -n "$NGINX_CONF"
-            if ! sudo grep -q 'personal-site-ask-api.conf' "$NGINX_CONF"; then
-              sudo python3 - "$NGINX_CONF" <<'PY'
+            sudo python3 - "$NGINX_CONF" <<'PY'
           from pathlib import Path
           import sys
 
           path = Path(sys.argv[1])
           text = path.read_text()
-          marker = "root /var/www/personal-site"
-          pos = text.find(marker)
-          if pos == -1:
-              pos = text.find("geniustay.cn")
-          if pos == -1:
-              raise SystemExit("Could not find personal-site server block")
-
-          server_pos = text.rfind("server", 0, pos)
-          brace_pos = text.find("{", server_pos)
-          depth = 0
-          end_pos = -1
-          for i in range(brace_pos, len(text)):
-              if text[i] == "{":
-                  depth += 1
-              elif text[i] == "}":
-                  depth -= 1
-                  if depth == 0:
-                      end_pos = i
-                      break
-          if end_pos == -1:
-              raise SystemExit("Could not find server block end")
-
           include = "  include /etc/nginx/snippets/personal-site-ask-api.conf;\n"
-          text = text[:end_pos] + include + text[end_pos:]
+
+          blocks = []
+          cursor = 0
+          while True:
+              server_pos = text.find("server", cursor)
+              if server_pos == -1:
+                  break
+              brace_pos = text.find("{", server_pos)
+              if brace_pos == -1:
+                  break
+              depth = 0
+              end_pos = -1
+              for i in range(brace_pos, len(text)):
+                  if text[i] == "{":
+                      depth += 1
+                  elif text[i] == "}":
+                      depth -= 1
+                      if depth == 0:
+                          end_pos = i
+                          break
+              if end_pos == -1:
+                  break
+              block = text[server_pos:end_pos]
+              if (
+                  "root /var/www/personal-site" in block
+                  or "geniustay.cn" in block
+              ) and "personal-site-ask-api.conf" not in block:
+                  blocks.append(end_pos)
+              cursor = end_pos + 1
+
+          if not blocks:
+              path.write_text(text)
+              raise SystemExit(0)
+
+          for end_pos in reversed(blocks):
+              text = text[:end_pos] + include + text[end_pos:]
           path.write_text(text)
           PY
-            fi
             sudo nginx -t
             sudo systemctl reload nginx
           REMOTE
