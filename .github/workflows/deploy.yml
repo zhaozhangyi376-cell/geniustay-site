@@ -112,9 +112,10 @@ jobs:
           }
           SNIPPET
 
-            NGINX_CONF=$(sudo grep -RslE 'root[[:space:]]+/var/www/personal-site|server_name[[:space:]].*geniustay\.cn' /etc/nginx/sites-enabled /etc/nginx/conf.d | head -n 1)
-            test -n "$NGINX_CONF"
-            sudo python3 - "$NGINX_CONF" <<'PY'
+            NGINX_CONFS=$(sudo grep -RslE 'root[[:space:]]+/var/www/personal-site|server_name[[:space:]].*geniustay\.cn' /etc/nginx/nginx.conf /etc/nginx/sites-enabled /etc/nginx/conf.d)
+            test -n "$NGINX_CONFS"
+            for NGINX_CONF in $NGINX_CONFS; do
+              sudo python3 - "$NGINX_CONF" <<'PY'
           from pathlib import Path
           import sys
 
@@ -159,6 +160,7 @@ jobs:
               text = text[:end_pos] + include + text[end_pos:]
           path.write_text(text)
           PY
+            done
             sudo nginx -t
             sudo systemctl reload nginx
           REMOTE
