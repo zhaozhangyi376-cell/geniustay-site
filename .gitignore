@@ -1,3 +1,9 @@
 .deploy/
 .DS_Store
 Thumbs.db
+
+# Local-only backups and generated bundles.
+_local-only-*/
+Zhao Zhangyi - Personal Site.html
+*.tar.gz
+*.zip
