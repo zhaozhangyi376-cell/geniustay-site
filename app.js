@@ -151,12 +151,51 @@
   const askInput = document.querySelector(".ask-input");
   const askBtn = document.querySelector(".ask-btn");
   const askAnswer = document.querySelector(".ask-answer");
+  const askHistoryEl = document.querySelector(".ask-history");
+  const askClear = document.querySelector(".ask-clear");
   const askChips = document.querySelectorAll(".ask-chip");
+  const ASK_HISTORY_KEY = "geniustay.ask.history.v1";
 
   let busy = false;
   let activeController = null;
+  let askHistory = loadAskHistory();
+
+  function loadAskHistory() {
+    try {
+      const stored = localStorage.getItem(ASK_HISTORY_KEY);
+      const parsed = stored ? JSON.parse(stored) : [];
+      return Array.isArray(parsed) ? parsed.slice(-12) : [];
+    } catch (_) {
+      return [];
+    }
+  }
+
+  function saveAskHistory() {
+    try {
+      localStorage.setItem(ASK_HISTORY_KEY, JSON.stringify(askHistory.slice(-12)));
+    } catch (_) {}
+  }
+
+  function renderAskHistory() {
+    if (!askHistoryEl) return;
+    askHistoryEl.innerHTML = "";
+    askHistory.slice(-6).forEach((item) => {
+      const turn = document.createElement("div");
+      turn.className = "ask-turn";
+      const label = document.createElement("strong");
+      label.textContent = item.role === "user" ? "Question" : "Answer";
+      const text = document.createElement("span");
+      text.textContent = item.content;
+      turn.append(label, text);
+      askHistoryEl.append(turn);
+    });
+    askHistoryEl.scrollTop = askHistoryEl.scrollHeight;
+  }
+
+  renderAskHistory();
 
   function setAskLoading(isLoading) {
+    if (!askAnswer || !askBtn) return;
     askAnswer.classList.toggle("is-loading", isLoading);
     askBtn.disabled = isLoading;
     askBtn.textContent = isLoading ? "..." : "ASK";
@@ -177,19 +216,26 @@
   }
 
   async function ask(question) {
-    if (!question || busy) return;
+    if (!askInput || !askBtn || !askAnswer || !question || busy) return;
     busy = true;
     activeController?.abort();
     activeController = new AbortController();
     askAnswer.classList.add("show");
     askAnswer.textContent = "";
+    askHistory.push({ role: "user", content: question });
+    saveAskHistory();
+    renderAskHistory();
     setAskLoading(true);
 
     try {
       const response = await fetch("/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({
+          question,
+          history: askHistory.slice(-10),
+          storage: "localStorage",
+        }),
         signal: activeController.signal,
       });
 
@@ -201,6 +247,7 @@
       const decoder = new TextDecoder();
       let buffer = "";
       let hasText = false;
+      let answer = "";
 
       while (true) {
         const { value, done } = await reader.read();
@@ -216,18 +263,27 @@
                 hasText = true;
                 setAskLoading(false);
               }
-              askAnswer.textContent += payload.content;
+              answer += payload.content;
+              askAnswer.textContent = answer;
             }
           } catch (_) {}
         });
       }
 
       if (!hasText) {
-        askAnswer.textContent = "暂时没有收到回答，可以稍后再试。";
+        answer = "暂时没有收到回答，可以稍后再试。";
+        askAnswer.textContent = answer;
       }
+      askHistory.push({ role: "assistant", content: answer });
+      saveAskHistory();
+      renderAskHistory();
     } catch (err) {
       if (err.name !== "AbortError") {
-        askAnswer.textContent = "抱歉，这会儿回答不了。可以邮件联系：geniustay@163.com";
+        const fallback = "抱歉，这会儿回答不了。可以邮件联系：geniustay@163.com";
+        askAnswer.textContent = fallback;
+        askHistory.push({ role: "assistant", content: fallback });
+        saveAskHistory();
+        renderAskHistory();
       }
     } finally {
       busy = false;
@@ -239,6 +295,15 @@
   askBtn?.addEventListener("click", () => ask(askInput.value.trim()));
   askInput?.addEventListener("keydown", (e) => {
     if (e.key === "Enter") ask(askInput.value.trim());
+  });
+  askClear?.addEventListener("click", () => {
+    askHistory = [];
+    saveAskHistory();
+    renderAskHistory();
+    if (askAnswer) {
+      askAnswer.classList.remove("show");
+      askAnswer.textContent = "";
+    }
   });
   askChips.forEach((c) => {
     c.addEventListener("click", () => {
