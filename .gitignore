@@ -8,3 +8,11 @@ Zhao Zhangyi - Personal Site.html
 *.tar.gz
 *.zip
 __pycache__/
+
+# Historical standalone/upload artifacts not needed for deployment.
+index.standalone.src.html
+uploads/
+
+# Local design notes and verification fixtures.
+docs/superpowers/
+tests/

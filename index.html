@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20260624-1">
+  <link rel="stylesheet" href="styles.css?v=20260713-1">
 
 <template id="__bundler_thumbnail" data-bg-color="#f6f4ef">
   <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
@@ -30,8 +30,8 @@
     <a href="#ventures" data-sec="ventures">品牌</a>
     <a href="#stack" data-sec="stack">技术栈</a>
     <a href="#knowledge" data-sec="knowledge">知识库</a>
-    <a href="#edge" data-sec="edge">我能提供</a>
     <a href="#beyond" data-sec="beyond">足迹</a>
+    <a href="#edge" data-sec="edge">我能提供</a>
     <a href="#contact" data-sec="contact">联系</a>
   </div>
 </nav>
@@ -73,7 +73,7 @@
       </div>
       <div class="meta-item">
         <div class="meta-label">Investing</div>
-        <div class="meta-value">首届“达晨班”成员&amp;班长（达晨财智&amp;南科大联合创办）</div>
+        <div class="meta-value">首届“达晨班”成员&amp;班长（达晨财智&amp;南科大未来创投家计划）</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Focus</div>
@@ -238,14 +238,14 @@
       <div class="section-side">origin → return</div>
     </div>
 
-    <div class="projects">
-      <article class="project reveal">
+    <div class="projects brand-projects">
+      <article class="project project-main reveal">
+        <div class="project-tag">FOUNDER · CEO · 2025 →</div>
+        <h3>界越未来</h3>
         <div class="project-photo">
-          <img class="zoom" src="assets/story/jieyue-lecture.jpg?v=20260623-1" alt="界越未来 · 大创讲座现场" loading="lazy">
+          <img class="zoom" src="assets/story/jieyue-lecture-stage.jpg?v=20260625-1" alt="界越未来 · 大创讲座现场" loading="lazy">
           <span class="photo-cap">从真实需求开始 · 大创讲座现场</span>
         </div>
-        <div class="project-tag">FOUNDER · CEO · 2025 →</div>
-        <h3>界越未来教育科技有限公司</h3>
         <p class="p-desc">
           界越未来不是从商业计划书里长出来的，而是从一次支教后的自我追问开始：
           我曾在迷茫里被教育托举，也希望把这种托举还给更多年轻人。
@@ -253,13 +253,13 @@
         </p>
         <div class="story-arc">
           <div><span>01</span><strong>支教缘起</strong><p>在贵州镇远第一次意识到，成长可以成为帮助别人的能力。</p></div>
-          <div><span>02</span><strong>讲座洞察</strong><p>从项目经验出发做公开分享，捕捉到大学生能力提升的真实需求。</p></div>
-          <div><span>03</span><strong>产品闭环</strong><p>从 30 人团队收缩到 5 人核心组，跑通服务交付与正向现金流。</p></div>
-          <div><span>04</span><strong>重回故地</strong><p>两年后带着界越未来回到镇远，做“山外天地，大有可为”夏令营。</p></div>
+          <div><span>02</span><strong>成立公司</strong><p>从大创讲座的真实需求出发，把经验分享产品化，跑通获客、转化、交付与正向现金流。</p></div>
+          <div><span>03</span><strong>夏令营重回故地</strong><p>两年后带着界越未来回到镇远，做“山外天地，大有可为”夏令营。</p></div>
         </div>
         <div class="story-photos">
+          <figure><img class="zoom" src="assets/footprints/teaching-field-wide.jpg?v=20260625-1" alt="贵州镇远支教" loading="lazy"><figcaption>支教 · 缘起</figcaption></figure>
+          <figure><img class="zoom" src="assets/story/jieyue-vision.jpg?v=20260625-1" alt="界越未来讲座愿景" loading="lazy"><figcaption>成立 · 看见需求</figcaption></figure>
           <figure><img class="zoom" src="assets/story/jieyue-camp.jpg?v=20260623-1" alt="界越未来夏令营" loading="lazy"><figcaption>夏令营 · 重回镇远</figcaption></figure>
-          <figure><img class="zoom" src="assets/story/jieyue-feedback.jpg?v=20260623-1" alt="界越未来反馈" loading="lazy"><figcaption>反馈 · 服务验证</figcaption></figure>
         </div>
         <div class="p-stats">
           <div class="p-stat"><span class="n">200<small>+</small></span><div class="l">付费客户</div></div>
@@ -269,7 +269,7 @@
         </div>
       </article>
 
-      <article class="project reveal">
+      <article class="project project-secondary reveal">
         <div class="project-tag">CO-FOUNDER · 2025 →</div>
         <h3>AgentAlpha 社区</h3>
         <p class="p-desc">
@@ -293,93 +293,134 @@
   <div class="block-inner">
     <div class="section-head reveal">
       <div class="section-num">§ 04 / 08</div>
-      <h2 class="section-title">技术栈<span class="en">AI for engineering, simulation automation, and agentic systems.</span></h2>
-      <div class="section-side">4 capability layers</div>
+      <h2 class="section-title">技术栈<span class="en">Mapped by technical domain, not by project — from a full scan of what I actually build with.</span></h2>
+      <div class="section-side">6 大领域 · 2026-07 全盘扫描</div>
     </div>
 
     <div class="stack-intro reveal">
       <p>
-        技术栈来自几个真实系统：<span class="accent">cst_ai_platform</span>、<span class="accent">HFSS_auto</span>、
-        <span class="accent">order01</span>、<span class="accent">ai4cem</span> 与 Agent 工具链。
-        它们共同指向一个目标：把仿真、优化、AI 与产品交付串成可复用的工程闭环。
+        不按项目分，按<span class="accent">技术领域</span>归纳：以下 6 大领域来自对本机全部真实项目
+        （HFSS_auto / CST_auto / order01 / ai4cem / claude-to-im / 本站等）的依赖与源码扫描，
+        条形代表当前熟练度，顶部色带是精力分布。
       </p>
     </div>
 
-    <div class="stack-grid">
-      <article class="stack-card reveal">
-        <div class="stack-kicker">RF / CAE Automation</div>
-        <h3>电磁仿真自动化与参数化建模</h3>
-        <p>
-          围绕 Ansys HFSS、CST Studio Suite 与 AEDT 无头脚本化，搭建从参数建模、扫参求解、
-          结果抽取到报告生成的自动化链路。
-        </p>
-        <div class="stack-tags">
-          <span>Ansys HFSS 2025 R2</span>
-          <span>CST Studio Suite 2025</span>
-          <span>IronPython 2.7</span>
-          <span>PyAEDT</span>
-          <span>VBA / Macro</span>
-          <span>PowerShell Campaign</span>
-          <span>S-Parameters</span>
-          <span>Array Antenna</span>
-        </div>
-      </article>
-
-      <article class="stack-card reveal">
-        <div class="stack-kicker">AI for Engineering</div>
-        <h3>代理建模、贝叶斯优化与多目标搜索</h3>
-        <p>
-          用机器学习和优化算法连接全波仿真数据，把“试错调参”推进到代理模型、
-          多目标 Pareto 与物理约束下的逆向设计。
-        </p>
-        <div class="stack-tags">
-          <span>PyTorch</span>
-          <span>BoTorch</span>
-          <span>GPyTorch</span>
-          <span>scikit-optimize</span>
-          <span>NSGA-II</span>
-          <span>Surrogate Model</span>
-          <span>Parametric Sweep</span>
-          <span>Full-wave Validation</span>
-        </div>
-      </article>
-
-      <article class="stack-card reveal">
-        <div class="stack-kicker">Agent / Product Systems</div>
-        <h3>Agent 工具链与业务系统工程</h3>
-        <p>
-          从 claude-to-im、research-agent-ui 到 order01，把 LLM 自动化、飞书/Discord 桥接、
-          Web UI 与真实订单交付流程连接起来。
-        </p>
-        <div class="stack-tags">
-          <span>Claude Agent SDK</span>
-          <span>MCP Tools</span>
-          <span>TypeScript / JS</span>
-          <span>Node.js / Express</span>
-          <span>Lark / Feishu SDK</span>
-          <span>WebSocket</span>
-          <span>Order Workflow</span>
-          <span>Ops Dashboard</span>
-        </div>
-      </article>
+    <div class="stack-dist reveal" aria-label="六大领域精力分布">
+      <div class="stack-dist-bar">
+        <span style="flex:28;background:var(--kb-c0)"></span>
+        <span style="flex:18;background:var(--kb-c1)"></span>
+        <span style="flex:16;background:var(--kb-c2)"></span>
+        <span style="flex:16;background:var(--kb-c3)"></span>
+        <span style="flex:12;background:var(--kb-c4)"></span>
+        <span style="flex:10;background:var(--kb-c5)"></span>
+      </div>
+      <div class="stack-dist-legend">
+        <span><i style="background:var(--kb-c0)"></i>计算电磁学 &amp; RF CAE 28%</span>
+        <span><i style="background:var(--kb-c1)"></i>AI / 机器学习 18%</span>
+        <span><i style="background:var(--kb-c2)"></i>数值方法 / 开源 FEM 16%</span>
+        <span><i style="background:var(--kb-c3)"></i>Agent / LLM 工程 16%</span>
+        <span><i style="background:var(--kb-c4)"></i>语言与工程化 12%</span>
+        <span><i style="background:var(--kb-c5)"></i>Web / 全栈部署 10%</span>
+      </div>
     </div>
 
-    <div class="stack-layers reveal">
-      <div class="stack-layer">
-        <span>01</span>
-        <strong>Programming Core</strong>
-        <p>Python 主力，配合 IronPython、VBA、TypeScript、PowerShell，覆盖科研计算到工程自动化。</p>
-      </div>
-      <div class="stack-layer">
-        <span>02</span>
-        <strong>CEM / FEM Roadmap</strong>
-        <p>scikit-fem 原型，面向 FEniCSx、PETSc、NGSolve 与 learned preconditioner 的博士主线。</p>
-      </div>
-      <div class="stack-layer">
-        <span>03</span>
-        <strong>Research Workflow</strong>
-        <p>Git、Jupyter、uv、pytest、ruff、Zotero 与自动化 PPT，把研究过程沉淀成可复现资产。</p>
-      </div>
+    <div class="stack-grid">
+      <article class="stack-card reveal" style="--dc:var(--kb-c0)">
+        <div class="stack-kicker">01 · CEM / RF CAE</div>
+        <h3>计算电磁学 &amp; RF CAE</h3>
+        <p>专业核心：全波仿真的无头脚本化驱动，从参数建模、批量求解到 S 参数 / 隔离 / 增益抽取的完整自动化链路。</p>
+        <div class="stack-skills">
+          <div class="stack-skill"><span class="ss-name">Ansys HFSS / AEDT 无头脚本化（IronPython -RunScript）</span><span class="ss-lv">主力</span><i class="ss-bar"><b style="width:95%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">CST 宏建模（VBA 341 例库 + cst.interface Python API）</span><span class="ss-lv">主力</span><i class="ss-bar"><b style="width:90%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">相控阵方法：FADDM 有限阵列 · 有源 S / 去耦 / 波束扫描</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:85%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">Ansys optiSLang 稳健设计</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:55%"></b></i></div>
+        </div>
+        <figure class="stack-fig">
+          <img src="assets/stack/stack-cem.png" alt="HFSS 相控阵仿真模型" loading="lazy" onerror="this.closest('.stack-fig').classList.add('await')">
+          <figcaption>HFSS 8×8 相控阵 · FADDM 有限阵列</figcaption>
+          <div class="stack-fig-hint">待配图 assets/stack/stack-cem.png · 建议 1200×700 · HFSS 阵列模型或方向图截图</div>
+        </figure>
+      </article>
+
+      <article class="stack-card reveal" style="--dc:var(--kb-c1)">
+        <div class="stack-kicker">02 · AI / ML</div>
+        <h3>AI / 机器学习</h3>
+        <p>用数据驱动连接全波仿真：代理模型、贝叶斯优化与多目标 Pareto 搜索，把「试错调参」推进到逆向设计。</p>
+        <div class="stack-skills">
+          <div class="stack-skill"><span class="ss-name">数据科学核心（NumPy · SciPy · pandas · scikit-learn）</span><span class="ss-lv">主力</span><i class="ss-bar"><b style="width:90%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">多目标进化优化（pymoo · NSGA-II 相控阵实战）</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:85%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">PyTorch（+ Lightning · torch-geometric）</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:78%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">贝叶斯优化 / 代理建模（BoTorch · GPyTorch）</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:72%"></b></i></div>
+        </div>
+        <figure class="stack-fig">
+          <img src="assets/stack/stack-aiml.png" alt="NSGA-II 多目标 Pareto 前沿" loading="lazy" onerror="this.closest('.stack-fig').classList.add('await')">
+          <figcaption>NSGA-II 多目标搜索 · Pareto 前沿</figcaption>
+          <div class="stack-fig-hint">待配图 assets/stack/stack-aiml.png · 建议 1200×700 · Pareto 前沿或代理模型对比图</div>
+        </figure>
+      </article>
+
+      <article class="stack-card reveal" style="--dc:var(--kb-c2)">
+        <div class="stack-kicker">03 · FEM / Numerics</div>
+        <h3>数值方法 / 开源 FEM</h3>
+        <p>博士主线 ai4cem：走出商软黑箱，用 AI 加速开源有限元内核——learned preconditioner 与阵列快线代理并行推进。</p>
+        <div class="stack-skills">
+          <div class="stack-skill"><span class="ss-name">scikit-fem 原型验证</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:68%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">FEniCSx · PETSc（PCShell 注入路径）</span><span class="ss-lv">构建中</span><i class="ss-bar"><b style="width:45%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">Learned Preconditioner · Neural Operator · ROM</span><span class="ss-lv">探索中</span><i class="ss-bar"><b style="width:38%"></b></i></div>
+        </div>
+        <figure class="stack-fig">
+          <img src="assets/stack/stack-fem.png" alt="开源 FEM 网格与场分布" loading="lazy" onerror="this.closest('.stack-fig').classList.add('await')">
+          <figcaption>开源 FEM · 网格与场分布</figcaption>
+          <div class="stack-fig-hint">待配图 assets/stack/stack-fem.png · 建议 1200×700 · scikit-fem/FEniCSx 网格或场图</div>
+        </figure>
+      </article>
+
+      <article class="stack-card reveal" style="--dc:var(--kb-c3)">
+        <div class="stack-kicker">04 · Agent / LLM</div>
+        <h3>Agent / LLM 工程</h3>
+        <p>把 LLM 变成生产力系统：agentic 自动化驱动仿真与科研工作流，自研桥接把 Claude 接进飞书。</p>
+        <div class="stack-skills">
+          <div class="stack-skill"><span class="ss-name">Claude Code · Agent SDK · 自定义 Skills（27+ 技能库）</span><span class="ss-lv">主力</span><i class="ss-bar"><b style="width:95%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">飞书开放平台（lark-cli · SDK · claude-to-im 桥接）</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:85%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">MCP 工具链 · 无头浏览器自动化（Playwright）</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:80%"></b></i></div>
+        </div>
+        <figure class="stack-fig">
+          <img src="assets/stack/stack-agent.png" alt="Claude Agent 驱动仿真工作流" loading="lazy" onerror="this.closest('.stack-fig').classList.add('await')">
+          <figcaption>Agent 驱动的仿真自动化工作流</figcaption>
+          <div class="stack-fig-hint">待配图 assets/stack/stack-agent.png · 建议 1200×700 · claude-to-im 飞书对话或 Agent 工作流截图</div>
+        </figure>
+      </article>
+
+      <article class="stack-card reveal" style="--dc:var(--kb-c4)">
+        <div class="stack-kicker">05 · Languages / Eng</div>
+        <h3>编程语言与工程化</h3>
+        <p>Python 为主力的多语言矩阵，覆盖科研计算到工程自动化，用工具链把研究过程沉淀成可复现资产。</p>
+        <div class="stack-skills">
+          <div class="stack-skill"><span class="ss-name">Python（科学计算 · 自动化 · 数据分析）</span><span class="ss-lv">主力</span><i class="ss-bar"><b style="width:95%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">IronPython 2.7 · VBA 宏（CAE 原生驱动）</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:85%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">Git · pytest · ruff · uv · Jupyter</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:80%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">PowerShell / Batch 批量求解流水线</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:75%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">TypeScript / JavaScript</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:68%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">C / C++（数值内核方向）</span><span class="ss-lv">萌芽</span><i class="ss-bar"><b style="width:30%"></b></i></div>
+        </div>
+      </article>
+
+      <article class="stack-card reveal" style="--dc:var(--kb-c5)">
+        <div class="stack-kicker">06 · Web / Deploy</div>
+        <h3>Web / 全栈与部署</h3>
+        <p>从前端可视化到云端交付的完整闭环：本站即作品——canvas 知识网络、AI 问答与自动化部署全部自建。</p>
+        <div class="stack-skills">
+          <div class="stack-skill"><span class="ss-name">前端（HTML / CSS / vanilla JS · canvas 可视化）</span><span class="ss-lv">熟练</span><i class="ss-bar"><b style="width:75%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">Node.js · Express · WebSocket</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:70%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">LLM API 集成（DeepSeek 流式问答反代）</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:65%"></b></i></div>
+          <div class="stack-skill"><span class="ss-name">Nginx · GitHub Actions · rsync 自动部署</span><span class="ss-lv">在用</span><i class="ss-bar"><b style="width:65%"></b></i></div>
+        </div>
+        <figure class="stack-fig">
+          <img src="assets/stack/stack-web.png" alt="网站部署与 AI 问答" loading="lazy" onerror="this.closest('.stack-fig').classList.add('await')">
+          <figcaption>geniustay.cn · 自动化部署与 AI 问答</figcaption>
+          <div class="stack-fig-hint">待配图 assets/stack/stack-web.png · 建议 1200×700 · 网站问答界面或部署流水线截图</div>
+        </figure>
+      </article>
     </div>
   </div>
 </section>
@@ -389,75 +430,157 @@
   <div class="block-inner">
     <div class="section-head reveal">
       <div class="section-num">§ 05 / 08</div>
-      <h2 class="section-title">知识库<span class="en">Core cognition system for research, venture, and life decisions.</span></h2>
-      <div class="section-side">4 mental models</div>
+      <h2 class="section-title">知识库<span class="en">A living network of my personal knowledge graph — documents as nodes, logic as edges.</span></h2>
+      <div class="section-side">6 大类 · 42 篇</div>
     </div>
 
-    <div class="knowledge-intro reveal">
-      <p>
-        这部分展示我的核心认知体系：如何定义长期目标，如何拆解复杂问题，如何判断技术与商业之间的连接，
-        以及如何在开放世界里持续校准自己的位置。
-      </p>
+    <div class="kb-net reveal">
+      <div class="kb-legend" id="kb-legend" role="group" aria-label="按类别聚焦"></div>
+      <div class="kb-net-main">
+        <div class="kb-canvas-wrap" id="kb-graph">
+          <canvas role="img" aria-label="个人知识库网络图：42 篇文档按 6 大类相互联结，可交互"></canvas>
+          <div class="kb-tooltip" id="kb-tooltip"></div>
+        </div>
+        <aside class="kb-detail" id="kb-detail" aria-live="polite"></aside>
+      </div>
+      <div class="kb-net-foot">
+        <span class="kb-stats" id="kb-stats"></span>
+        <a class="kb-appendix-link" href="https://cv4otn5bwh0.feishu.cn/wiki/XyjXwNfeRiO1RGkIaNGcM51Rneg" target="_blank" rel="noopener">在飞书中查看完整知识图谱 ↗</a>
+      </div>
     </div>
 
-    <div class="knowledge-grid">
-      <article class="knowledge-card reveal">
-        <span class="knowledge-index">01</span>
-        <h3>长期主义</h3>
-        <p>重要且会越来越重要的事，应该更早开始，而不是等到“准备好”。</p>
-        <figure class="knowledge-proof-img">
-          <img class="zoom" src="assets/knowledge/teaching-first.jpg?v=20260624-1" alt="第一次支教" loading="lazy">
-        </figure>
-        <div class="knowledge-proof">
-          <strong>实践</strong>
-          从贵州支教到两年后带着界越未来重回当地做夏令营，把一次触动延展成持续行动。
-        </div>
-        <div class="knowledge-meta">Long-termism · Promise · Compounding</div>
-      </article>
+    <details class="kb-fallback reveal">
+      <summary>以列表浏览全部 42 篇</summary>
+      <div class="kb-fb-cat"><b>🤖 AI · LLM · Agent</b>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/FoS0w1lUOicD7DkGMLCc2X2Sng7" target="_blank" rel="noopener">AI 学习</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/X8MgwjRnFipTQok99GqcdXS7nXg" target="_blank" rel="noopener">AI 说明书</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/VDpZwji5uiuxPhkHZnzctNmwnSh" target="_blank" rel="noopener">Prompt Engineering</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/QiAAwL9aDiBEcskRxflcferunKg" target="_blank" rel="noopener">Agent 合作</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/SRP6w2QPviufWZkHBG0cFhpMn0e" target="_blank" rel="noopener">《拐点》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/GR9QwOHmhivm0pkeCgVcTiQtnKe" target="_blank" rel="noopener">bi &amp; ai</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/E64HwqFjkizNkTkNucFcMmSLnTd" target="_blank" rel="noopener">AI for EMD（探索篇）</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/B7GAw1FCZilCu3k7cmAc9MHFnFc" target="_blank" rel="noopener">AI for EMD 的过去、现在、未来</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/ZPDgwGYWfiD7NpkiVdEcC76unjg" target="_blank" rel="noopener">鹏城 AI 汇报</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/VGfIwNR8ditOG5kWlpScyxL1nhh" target="_blank" rel="noopener">CST Platform</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/UgNGw6cWUiuNJOkrKkUcfGUgnGd" target="_blank" rel="noopener">DC-class（达晨创投）</a>
+      </div>
+      <div class="kb-fb-cat"><b>🛠️ 飞书生态 · 工具</b>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/MU1WwbKgIiaWcokjuHOcC5gpnKb" target="_blank" rel="noopener">Productivity（工具栈）</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/MX5UwKsu9i41cJk3YJncBDAFnsd" target="_blank" rel="noopener">有效决策工具课程</a>
+      </div>
+      <div class="kb-fb-cat"><b>💼 创业 · 商业 · 获客</b>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/WmuwwpyvYitpGxkwkpncMADwnEd" target="_blank" rel="noopener">一、赚钱路径</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/TEU5wVswkioy1zkeB6Bck1Wpn3c" target="_blank" rel="noopener">变现 &amp; 变现路线</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/AbO1wtuyyi0NGhkB3AqczMsrnOd" target="_blank" rel="noopener">企业战略规划（界越未来）</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/WAl3wbtPuijHlYk4t2ucahqUnEg" target="_blank" rel="noopener">自媒体布局</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/AxERwrrOci8EEYkKsqccYZHtn1d" target="_blank" rel="noopener">《流量池》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/MBhSwZ0Jyiidf3kQW1DcnGdVnbJ" target="_blank" rel="noopener">《参与感》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/RYZNwg1X6iQCTTk4VNNcDrBZndh" target="_blank" rel="noopener">《真需求》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/F5PnwMwSHiMR7gkvdUrcuydInpf" target="_blank" rel="noopener">《小岛经济学》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/HWUtww7Cbir3dkkLO7PcOO2cnVc" target="_blank" rel="noopener">李想 × 罗永浩访谈</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/Vj2Gw3nM5iStwNkdpJ8cBjoOnf7" target="_blank" rel="noopener">界越未来品牌故事</a>
+      </div>
+      <div class="kb-fb-cat"><b>🌱 个人成长 · 自我管理</b>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/B2txwg99kidQv2kGArLcorqIntg" target="_blank" rel="noopener">罗销的第一次觉醒</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/OWPRwmV7XiJPJTkW9x1cXlkgnsg" target="_blank" rel="noopener">道路抉择</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/XGYGw6RAgiiaKYkCvIOcRKBLnrd" target="_blank" rel="noopener">优绩主义之外</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/Jcv0wpVJui6RCpktnm6cp6rmnRd" target="_blank" rel="noopener">迭代之路</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/XhQQwG3zoiYYaQkvW4FcugNNnpg" target="_blank" rel="noopener">5 年总线（初版）</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/EtUtwswByisEOZksL9Wc23FDnTe" target="_blank" rel="noopener">2025 年报：仍在路上</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/JFFOw0hVuipaJikHZbFcMGbpnGf" target="_blank" rel="noopener">《原则》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/Zn8uwJvG7idDtHkU7vEcz2I0nDb" target="_blank" rel="noopener">《把时间当作朋友》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/Hi1iwW4NviitJjkSmJ2cIk5CnuO" target="_blank" rel="noopener">《超越感觉》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/EemcwkJmciObrekroFsc1i6Rnhd" target="_blank" rel="noopener">《纳瓦尔宝典》</a>
+      </div>
+      <div class="kb-fb-cat"><b>🔭 行业研究 · 赛道分析</b>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/Ph0swspFGiZspuky1Q7c5zyGn2g" target="_blank" rel="noopener">Web3</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/CCnXwSThvin4sXkY6GacMsLCnNe" target="_blank" rel="noopener">《高维增长》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/Ofr0wuGRIi9vZJkHEAmctI6Mnkz" target="_blank" rel="noopener">《2049：未来 10000 天》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/TWegwEFnkilliOkcAfNc2p3rnub" target="_blank" rel="noopener">《财富的真相》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/X8XQwWkl9ipQAZk4jrxc4XCqnGf" target="_blank" rel="noopener">《随机漫步的傻瓜》</a>
+      </div>
+      <div class="kb-fb-cat"><b>📚 读书 · 课程笔记</b>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/ISiawV35Ciz6kJkjHnTcwNdCnid" target="_blank" rel="noopener">《影响力》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/RNs5wuYbQieyWNkCN1vc6zl4n3X" target="_blank" rel="noopener">《关乎天下》</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/C3lNwhUkZi59pLk0vVjcqSNnnxc" target="_blank" rel="noopener">Python 与数学</a>
+        <a href="https://cv4otn5bwh0.feishu.cn/wiki/WRUvwWvG9i0wW3kXW65cQUJInPd" target="_blank" rel="noopener">《世界的逻辑》（上）</a>
+      </div>
+    </details>
 
-      <article class="knowledge-card reveal">
-        <span class="knowledge-index">02</span>
-        <h3>选择大于努力</h3>
-        <p>努力不是无效，但方向、场域和评价体系决定了努力能否被放大。</p>
-        <figure class="knowledge-proof-img">
-          <img class="zoom" src="assets/knowledge/apec-forum.jpg?v=20260624-1" alt="APEC 青年学者论坛" loading="lazy">
-        </figure>
-        <div class="knowledge-proof">
-          <strong>实践</strong>
-          从电赛失利后的长板探寻，到英语、科研、创业多线展开，再到选择深圳与南科大。
-        </div>
-        <div class="knowledge-meta">Choice · Positioning · Leverage</div>
-      </article>
+  </div>
+</section>
 
-      <article class="knowledge-card reveal">
-        <span class="knowledge-index">03</span>
-        <h3>Do the real thing</h3>
-        <p>意义不是说出来的，而是在真实问题、真实约束和真实交付里做出来的。</p>
-        <figure class="knowledge-proof-img">
-          <img class="zoom" src="assets/knowledge/sci-home.jpg?v=20260624-1" alt="SCI 首页" loading="lazy">
-        </figure>
-        <div class="knowledge-proof">
-          <strong>实践</strong>
-          主持国家级大创、独作发表 SCI、推进 AI for RF / order01，把技术从想法推向可验证系统。
-        </div>
-        <div class="knowledge-meta">Real Problems · Engineering · Delivery</div>
-      </article>
-
-      <article class="knowledge-card reveal">
-        <span class="knowledge-index">04</span>
-        <h3>技术到市场</h3>
-        <p>技术价值需要被需求、客户、现金流和资本语言反复检验。</p>
-        <figure class="knowledge-proof-img">
-          <img class="zoom" src="assets/knowledge/business-license.jpg?v=20260624-1" alt="界越未来营业执照" loading="lazy">
-        </figure>
-        <div class="knowledge-proof">
-          <strong>实践</strong>
-          界越未来从获客、转化、交付、运营到增长跑通闭环，随后进入达晨班系统学习创投判断。
-        </div>
-        <div class="knowledge-meta">Market · Venture · Value Creation</div>
-      </article>
+<!-- BEYOND / PR -->
+<section class="block" id="beyond" data-screen-label="Beyond">
+  <div class="block-inner">
+    <div class="section-head reveal">
+      <div class="section-num">§ 06 / 08</div>
+      <h2 class="section-title">足迹<span class="en">看世界，寻自己 · Footprints beyond the lab.</span></h2>
+      <div class="section-side">8 moments</div>
     </div>
 
+    <div class="footprint-road reveal" aria-label="足迹时间路径">
+      <div class="road-ribbon" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+
+      <article class="footprint-stop footprint-stop-left" data-side="left">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/teaching-classroom-wide.jpg?v=20260625-1" alt="贵州镇远支教课堂" loading="lazy"></figure>
+          <div><span>2023</span><strong>贵州镇远支教</strong><p>第一次把“成长为了帮助更多人”变成具体行动，也埋下后来重回当地、带队做夏令营的伏笔。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>01</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-right" data-side="right">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/teaching-field-wide.jpg?v=20260625-1" alt="贵州镇远支教田野合影" loading="lazy"></figure>
+          <div><span>2023</span><strong>行走与观察</strong><p>在更大的现场里训练观察力，把抽象的世界认知落回具体的人、地点与问题。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>02</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-left" data-side="left">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/mun.jpg?v=20260623-2" alt="上海模拟联合国大会" loading="lazy"></figure>
+          <div><span>2023</span><strong>上海模拟联合国</strong><p>在国际议题讨论中训练英文表达、公共沟通与复杂议题理解，把语言能力放进真实场域。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>03</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-right" data-side="right">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/helicopter-broadcast.jpg?v=20260623-2" alt="直升机博览会双语播报" loading="lazy"></figure>
+          <div><span>2023</span><strong>直升机博览会双语播报</strong><p>站上大型国际活动现场，用双语播报完成从表达训练到公共服务的转换。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>04</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-left" data-side="left">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/icao-class.jpg?v=20260623-2" alt="国际民航交流授课" loading="lazy"></figure>
+          <div><span>2025</span><strong>国际民航人才交流</strong><p>参与 ICAO 相关培训与双语授课，继续拓展跨文化沟通半径，也让“语言”成为可交付的能力。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>05</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-right" data-side="right">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/summer-camp.jpg?v=20260623-2" alt="界越未来夏令营" loading="lazy"></figure>
+          <div><span>2026</span><strong>界越未来夏令营</strong><p>两年后带团队重回镇远，用“山外天地，大有可为”回应当年的约定，把个人经历变成产品行动。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>06</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-left" data-side="left">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/gallery/g6.jpg?v=20260624-1" alt="继续在路上" loading="lazy"></figure>
+          <div><span>2026</span><strong>继续在路上</strong><p>把支教、科研、创业和国际交流连接起来，持续扩展自己理解世界的样本量。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>07</span></div>
+      </article>
+      <article class="footprint-stop footprint-stop-right" data-side="right">
+        <div class="footprint-card">
+          <figure class="ph"><img class="zoom" src="assets/footprints/apec-forum.jpg?v=20260623-2" alt="APEC 青年学者论坛" loading="lazy"></figure>
+          <div><span>2026</span><strong>APEC 青年学者论坛</strong><p>进入更开放的国际青年议题场域，继续校准自己理解世界的坐标。</p></div>
+        </div>
+        <div class="footprint-waypoint"><span>08</span></div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -465,7 +588,7 @@
 <section class="block" id="edge" data-screen-label="Edge">
   <div class="block-inner">
     <div class="section-head reveal">
-      <div class="section-num">§ 06 / 08</div>
+      <div class="section-num">§ 07 / 08</div>
       <h2 class="section-title">我能提供<span class="en">Value I can bring across research, product, and judgment.</span></h2>
       <div class="section-side">3 intersections</div>
     </div>
@@ -538,56 +661,6 @@
   </div>
 </section>
 
-<!-- BEYOND / PR -->
-<section class="block" id="beyond" data-screen-label="Beyond">
-  <div class="block-inner">
-    <div class="section-head reveal">
-      <div class="section-num">§ 07 / 08</div>
-      <h2 class="section-title">我的足迹<span class="en">Footprints beyond the lab.</span></h2>
-      <div class="section-side">8 moments</div>
-    </div>
-
-    <p class="beyond-lead reveal">
-      我的足迹不是旅行清单，而是一条由内向外、再由外向内的路径：
-      <span class="accent">去看世界</span>，也把看见的东西带回自己的行动里。
-    </p>
-
-    <div class="footprint-journey reveal">
-      <article class="footprint-card">
-        <figure class="ph"><img class="zoom" src="assets/footprints/teaching-first.jpg?v=20260623-2" alt="乡村课堂支教" loading="lazy"></figure>
-        <div><span>2023</span><strong>贵州镇远支教</strong><p>第一次把“成长为了帮助更多人”变成具体行动，也埋下后来重回当地、带队做夏令营的伏笔。</p></div>
-      </article>
-      <article class="footprint-card">
-        <figure class="ph"><img class="zoom" src="assets/gallery/g1.jpg?v=20260624-1" alt="行走与观察" loading="lazy"></figure>
-        <div><span>2023</span><strong>行走与观察</strong><p>在更大的现场里训练观察力，把抽象的世界认知落回具体的人、地点与问题。</p></div>
-      </article>
-      <article class="footprint-card flip">
-        <figure class="ph"><img class="zoom" src="assets/footprints/mun.jpg?v=20260623-2" alt="上海模拟联合国大会" loading="lazy"></figure>
-        <div><span>2023</span><strong>上海模拟联合国</strong><p>在国际议题讨论中训练英文表达、公共沟通与复杂议题理解，把语言能力放进真实场域。</p></div>
-      </article>
-      <article class="footprint-card">
-        <figure class="ph"><img class="zoom" src="assets/footprints/helicopter-broadcast.jpg?v=20260623-2" alt="直升机博览会双语播报" loading="lazy"></figure>
-        <div><span>2023</span><strong>直升机博览会双语播报</strong><p>站上大型国际活动现场，用双语播报完成从表达训练到公共服务的转换。</p></div>
-      </article>
-      <article class="footprint-card flip">
-        <figure class="ph"><img class="zoom" src="assets/footprints/icao-class.jpg?v=20260623-2" alt="国际民航交流授课" loading="lazy"></figure>
-        <div><span>2025</span><strong>国际民航人才交流</strong><p>参与 ICAO 相关培训与双语授课，继续拓展跨文化沟通半径，也让“语言”成为可交付的能力。</p></div>
-      </article>
-      <article class="footprint-card">
-        <figure class="ph"><img class="zoom" src="assets/footprints/summer-camp.jpg?v=20260623-2" alt="界越未来夏令营" loading="lazy"></figure>
-        <div><span>2026</span><strong>界越未来夏令营</strong><p>两年后带团队重回镇远，用“山外天地，大有可为”回应当年的约定，把个人经历变成产品行动。</p></div>
-      </article>
-      <article class="footprint-card">
-        <figure class="ph"><img class="zoom" src="assets/gallery/g6.jpg?v=20260624-1" alt="继续在路上" loading="lazy"></figure>
-        <div><span>2026</span><strong>继续在路上</strong><p>把支教、科研、创业和国际交流连接起来，持续扩展自己理解世界的样本量。</p></div>
-      </article>
-      <article class="footprint-card flip">
-        <figure class="ph"><img class="zoom" src="assets/footprints/apec-forum.jpg?v=20260623-2" alt="APEC 青年学者论坛" loading="lazy"></figure>
-        <div><span>2026</span><strong>APEC 青年学者论坛</strong><p>进入更开放的国际青年议题场域，继续校准自己理解世界的坐标。</p></div>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact" data-screen-label="Contact">
@@ -612,7 +685,7 @@
           <span class="c-arrow">→</span>
         </li>
         <li>
-          <span class="c-label">Labs</span>
+          <span class="c-label">Base</span>
           <span class="c-val">SUSTech · 鹏城实验室 (PCL)</span>
           <span class="c-arrow">→</span>
         </li>
@@ -699,5 +772,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 </div>
 
 <script src="app.js?v=20260606-ask"></script>
+<script src="kb-graph.js?v=20260711-2" defer></script>
 </body>
 </html>
